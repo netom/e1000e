@@ -2421,7 +2421,8 @@ static int e1000_phys_id(struct net_device *netdev, u32 data)
 #endif /* HAVE_ETHTOOL_SET_PHYS_ID */
 
 static int e1000_get_coalesce(struct net_device *netdev,
-			      struct ethtool_coalesce *ec)
+			      struct ethtool_coalesce *ec, struct kernel_ethtool_coalesce *kec,
+			      struct netlink_ext_ack *nea)
 {
 	struct e1000_adapter *adapter = netdev_priv(netdev);
 
@@ -2434,7 +2435,8 @@ static int e1000_get_coalesce(struct net_device *netdev,
 }
 
 static int e1000_set_coalesce(struct net_device *netdev,
-			      struct ethtool_coalesce *ec)
+			      struct ethtool_coalesce *ec, struct kernel_ethtool_coalesce *kec,
+			      struct netlink_ext_ack *nea)
 {
 	struct e1000_adapter *adapter = netdev_priv(netdev);
 
